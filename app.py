@@ -3,6 +3,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask import session
 #Import the function that converts the real password into a secure hash
 import sqlite3
+import database
 app = Flask(__name__)
 app.secret_key = "something"
 
