@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Journal</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="edit-page">
+
+<div class="edit-card">
+
+    <h1>Edit Journal</h1>
+
+    <form action="/update-note/{{ note[0] }}" method="POST">
+
+        <label class="label">Title</label>
+
+        <input
+            class="edit-input"
+            type="text"
+            name="title"
+            value="{{ note[1] }}">
+
+        <label class="label">Emotion</label>
+
+        <input
+            class="edit-input"
+            type="text"
+            name="emotion"
+            value="{{ note[2] }}">
+
+        <label class="label">Thoughts</label>
+
+        <textarea
+            class="edit-textarea"
+            name="thoughts">{{ note[3] }}</textarea>
+
+        <div class="edit-buttons">
+
+            <a href="/notes" class="cancel-btn">
+                Cancel
+            </a>
+
+            <button class="save-btn" type="submit">
+                Save Changes
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+</body>
+</html>

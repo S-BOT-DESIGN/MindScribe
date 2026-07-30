@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang = eng>
+    <head>
+       <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>All Notes</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        
+        <h1>My Journal</h1>
+        <div class="notes-container">
+        {% for note in notes%}
+        <div class="journal-card">
+        <h2>Title:{{ note[1] }}</h2> <!--#note 1 is title,//note 2 is the emotion,//note 3 is the thought-->
+        <p> <strong>Emotion:</strong>{{note[2] }}
+        <p> <strong>Thoughts:</strong>{{ note[3] }}</p> 
+        <div class="card-buttons">
+            <a href="/view-note/{{ note[0]}}"><button>View</button></a>
+        <a href="/edit-note/{{ note[0]}}"><button>Edit</button></a>
+        <a href="/delete-note/{{ note[0] }}">
+    <button>Delete</button>
+</a>
+        </div>
+        </div>
+
+        {% endfor %}
+        </div>
+         <!--this line will turns into view-note/7 or any number before sending the page to the browser-->
+        <!--here view-note is a url name .it is simply the address of the page that shows one journal.you can even name it journal or any -->
+    </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dashboard</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <div class="dashboard">
+            <div class="top-bar">
+    <button class="menu-btn">☰</button>
+    <div class="sidebar">
+        <a href="/dashboard">Dasboard</a>
+        <a href="/notes">My Journals</a>
+        <a href="#">Settings</a>
+        <a href="/logout">Logout</a>
+    </div>
+    <a href="/new-note">
+            <button class="add-btn"> + </button>
+        </a>
+</div>
+
+         <div class="center-content">
+            <img src="{{ url_for('static', filename='images/book.png.jpeg') }}" alt="Book Icon" class="book-image">
+
+    <h1>How are you feeling today?</h1>
+
+    <p>Capture your thoughts in a safe place.</p>
+</div>
+    <script src="{{ url_for('static',filename='script.js')}}"></script>
+
+        </div>
+    </body>
+</html>

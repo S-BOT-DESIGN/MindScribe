@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>New Note</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <form action="/new-note" method="POST">
+
+<div class="new-note-container">
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+
+        <a href="/dashboard"class="back-btn">←</a>
+
+        <h2>New Note</h2>
+
+        <button type="submit" class="save-btn">Save</button>
+        <!--clicking the submit button send the data into flask backend-->
+
+    </div>
+
+    <!-- Title -->
+
+    <label class="label">Title</label>
+
+    <input
+        type="text"
+        class="title-input"
+        placeholder="Give your note a title..."
+        name="title"
+    >
+
+    <!-- Emotion -->
+
+    <h3>How are you feeling?</h3>
+
+    <p class="subtitle">
+        Choose the emotion that best fits your note.
+    </p>
+    <input type = "hidden" name="emotion" id = "selectedEmotion">
+<!--tHE NAME ATTRIBUTE is the key that flask uses in request.fprm.get("title/emotion/thoughts")-->
+    <div class="emotion-list">
+        
+
+        <div class="emotion-card">
+            <span class="emoji">😊</span>
+            <span class="emotion-name">Happy</span>
+            <span class="arrow">&#8250</span>
+        </div>
+
+        <div class="emotion-card">
+            <span class="emoji">😢</span>
+            <span class="emotion-name">Sad</span>
+            <span class="arrow">&#8250</span>
+        </div>
+
+        <div class="emotion-card">
+            <span class="emoji">😰</span>
+            <span class="emotion-name">Stress</span>
+            <span class="arrow">&#8250</span>
+        </div>
+
+        <div class="emotion-card">
+            <span class="emoji">🍃</span>
+            <span class="emotion-name">Calm</span>
+            <span class="arrow">&#8250</span>
+        </div>
+
+        <div class="emotion-card">
+            <span class="emoji">😡</span>
+            <span class="emotion-name">Angry</span>
+            <span class="arrow">&#8250</span>
+        </div>
+
+    </div>
+
+    <!-- Thoughts -->
+
+    <label class="label">
+        Your Thoughts
+    </label>
+
+    <textarea
+        class="thought-box"
+        rows="8"
+        placeholder="Write your thoughts here..."
+        name="thoughts"
+    ></textarea>
+
+    <p class="counter">0 / 10,000</p>
+
+</div>
+    <script src="{{ url_for('static', filename='script.js') }}">
+    </script>
+    </form>
+</body>
+</html>
