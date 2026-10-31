@@ -248,7 +248,7 @@ a{
     left:-250px;
     width:250px;
     height:100vh;
-    background:#6C2BD9;
+    background:#6f43bc;
     padding-top:60px;
     transition:0.3s;
 }
@@ -261,7 +261,7 @@ a{
 }
 
 .sidebar a:hover{
-    background-color:#5b3b9b;
+    background-color:#cac5d5;
 }
 
 /* ===========================
@@ -302,6 +302,13 @@ a{
     color:#555;
     margin-bottom:10px;
     line-height:1.5;
+}
+
+.journal-preview {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .card-buttons{

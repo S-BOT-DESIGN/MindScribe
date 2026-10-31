@@ -59,5 +59,18 @@ menuButton.addEventListener ("click",function(){
     }
 });
 
+//close sidebar when clicking anywhere outside
+document.addEventListener("click", function(event) {
+//event.target identifies the element you clicked
+//sideBar.contains() checks whether that element is inside the sidebar
+
+    if (
+        !sideBar.contains(event.target) &&
+        !menuButton.contains(event.target)
+    ) {
+        sideBar.style.left = "-250px";
+    }
+
+});
 
 

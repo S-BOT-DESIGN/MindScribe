@@ -16,14 +16,13 @@ def login():
     if request.method == "POST":
         email = request.form.get("email")
         password = request.form.get("password")
-        print("Email entered:", email)
-        print("Password entered:", password)
+        print("Login attempt received")
         conn = sqlite3.connect('notes.db')
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM users WHERE email = ?",(email,))
         user = cursor.fetchone()
-        print("User from DB:", user)
-#what is user now:2 chances-one is when email exixtes and other is when not existed
+        print("User found:", user is not None)
+#what is user now:2 chances-one is when email existed and other is when not existed
     #so if its case 2 we write this
         if not user:
             conn.close()
@@ -56,18 +55,30 @@ def new_note():
         title = request.form.get('title')
         thoughts = request.form.get('thoughts')
         emotion = request.form.get("emotion")
+
+        print("TITLE:", title)
+        print("EMOTION:", emotion)
+        print("THOUGHTS:", thoughts)
+        print("USER ID:", session["user_id"])
         
         user_id = session["user_id"]
         
         conn = sqlite3.connect("notes.db")
         cursor = conn.cursor()
+
         cursor.execute("""
             INSERT INTO notes(user_id, title, emotion, thoughts)
             VALUES (?, ?, ?, ?)
         """, (user_id, title, emotion, thoughts))
+
         conn.commit()
+
+        cursor.execute("SELECT * FROM notes ORDER BY id DESC LIMIT 1")
+        print("JUST INSERTED:", cursor.fetchone())
+
         conn.close()
         return redirect("/notes")
+
     return render_template('new_notes.html')
 
 @app.route('/notes')

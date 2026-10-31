@@ -3,7 +3,7 @@
     <head>
        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>All Notes</title>
+        <title>All Journals</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -11,13 +11,15 @@
     </head>
     <body>
         
-        <h1>My Journal</h1>
+        <h1>My Journals</h1>
         <div class="notes-container">
         {% for note in notes%}
-        <div class="journal-card">
-        <h2>Title:{{ note[1] }}</h2> <!--#note 1 is title,//note 2 is the emotion,//note 3 is the thought-->
-        <p> <strong>Emotion:</strong>{{note[2] }}
-        <p> <strong>Thoughts:</strong>{{ note[3] }}</p> 
+        <div class="journal-card">  <!--note 0 is id , note 1 is the user_id-->
+        <h2><strong>Title:</h2> <h3>{{ note[2] }}</h3></strong><!--#note 2 is title,//note 3 is the emotion,//note 4 is the thought-->
+        <p> <strong>Emotion:</strong>{{note[3] }}
+        <p class="journal-preview">
+            <strong>Thoughts:</strong> {{ note[4] }}
+        </p>
         <div class="card-buttons">
             <a href="/view-note/{{ note[0]}}"><button>View</button></a>
         <a href="/edit-note/{{ note[0]}}"><button>Edit</button></a>

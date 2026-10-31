@@ -11,6 +11,7 @@
     </head>
     <body>
         <form action="/new-note" method="POST">
+            <!-- So when you click Save, the browser sends the form data to Flask -->
 
 <div class="new-note-container">
 
@@ -45,7 +46,7 @@
         Choose the emotion that best fits your note.
     </p>
     <input type = "hidden" name="emotion" id = "selectedEmotion">
-<!--tHE NAME ATTRIBUTE is the key that flask uses in request.fprm.get("title/emotion/thoughts")-->
+<!--tHE NAME ATTRIBUTE is the key that flask uses in request.form.get("title/emotion/thoughts")-->
     <div class="emotion-list">
         
 
