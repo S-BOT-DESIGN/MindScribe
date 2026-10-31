@@ -23,3 +23,4 @@ First Backend Project built using **Flask**, **SQLite**, **HTML**, and **CSS**.
 # 📓 MindScribe
 
 > Capture your thoughts. Reflect on your emotions. Grow every day.
+> <img width="1920" height="1020" alt="Screenshot 2026-10-31 221622" src="https://github.com/user-attachments/assets/18d5c252-4f28-4947-95fd-1610f1a3ce81" />
